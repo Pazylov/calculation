@@ -14,7 +14,7 @@ btnAdd.addEventListener('click', () => {
 	const sumNum = Number(numberInput.value)
 
 	if (!desc || isNaN(sumNum) || sumNum === 0) {
-		alert('Пожалуйста, введите корректные данные.')
+		alert('Пожалуйста, заполните описания и сумму.')
 		return
 	}
 

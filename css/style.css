@@ -150,3 +150,38 @@
 	font-style: normal;
 	font-weight: 400;
 }
+
+@media (max-width: 576px) {
+	.container {
+		margin-top: 20px;
+		padding: 20px;
+		width: 320px;
+		height: 500px;
+	}
+
+	.title {
+		font-size: 18px;
+	}
+
+	.form {
+		margin-top: 20px;
+	}
+
+	.number::placeholder,
+	.desc::placeholder {
+		font-size: 14px;
+	}
+
+	.btn {
+		padding: 4px;
+		font-size: 14px;
+	}
+
+	.empty {
+		font-size: 12px;
+	}
+
+	.total {
+		font-size: 14px;
+	}
+}
