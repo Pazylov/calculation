@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Учет расходов и прибыли</title>
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="title">Учет расходов и прибыли</h1>
+			<div class="form">
+				<input
+					id="descInput"
+					class="desc"
+					type="text"
+					placeholder="Введите описание: "
+				/>
+				<input
+					id="numberInput"
+					class="number"
+					type="number"
+					placeholder="Введите сумму: "
+				/>
+				<button id="btnAdd" class="btn">Добавить</button>
+			</div>
+
+			<div class="overflow">
+				<ul id="listRecording" class="list">
+					<li id="emptyRecording" class="empty">
+						// На данный момент у вас нет записей!
+					</li>
+				</ul>
+			</div>
+
+			<h5 id="totalSum" class="total">Итого: 0 с</h5>
+		</div>
+
+		<script src="./main.js"></script>
+	</body>
+</html>

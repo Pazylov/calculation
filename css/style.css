@@ -1,0 +1,152 @@
+@import url(./base.css);
+
+/*  */
+.container {
+	position: relative;
+	margin: 50px auto 0;
+	padding: 30px;
+
+	width: 400px;
+	height: 600px;
+
+	font-family: 'Playfair Display', serif;
+
+	border-radius: 5px;
+	background-image: linear-gradient(#444754, #4c5262, #444754);
+	color: #fff;
+}
+
+.title {
+	font-weight: 700;
+	font-style: italic;
+	letter-spacing: 1.4px;
+	font-size: 24px;
+	text-align: center;
+}
+
+.form {
+	margin-top: 30px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.number,
+.desc {
+	padding: 5px 10px;
+	border-radius: 3px;
+	border: 2px solid #ffffff4c;
+	letter-spacing: 1.4px;
+
+	font-family: 'Lato', sans-serif;
+	font-style: italic;
+}
+
+.number::placeholder,
+.desc::placeholder {
+	color: #ffffff4c;
+	font-style: italic;
+	font-family: 'Playfair Display', serif;
+}
+
+.desc:focus,
+.number:focus {
+	border: 2px solid #fff;
+}
+
+.desc {
+}
+
+.number {
+}
+
+.btn {
+	padding: 8px;
+
+	font-weight: 700;
+	font-size: 16px;
+	letter-spacing: 1.6px;
+
+	border-radius: 3px;
+	background: #6a6e7f;
+	color: #fff;
+
+	transition: all 0.3s ease;
+}
+
+.btn:hover {
+	background: #fff;
+	color: #50535f;
+}
+
+.overflow {
+	overflow: auto;
+	margin-top: 25px;
+	border-top: 1px solid #ffffff4c;
+}
+
+.overflow::-webkit-scrollbar {
+	width: 4px;
+	background-color: transparent;
+}
+
+.overflow::-webkit-scrollbar-thumb {
+	background-color: #ffffff4c;
+	border-radius: 10px;
+}
+
+.list {
+	max-height: 280px;
+	height: 100%;
+
+	margin-right: 8px;
+	padding-top: 8px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.empty {
+	color: #d2d2d2;
+	font-style: italic;
+	letter-spacing: 1.2px;
+	font-size: 14px;
+}
+
+.item {
+	display: grid;
+	grid-template-columns: 75% 25%;
+	justify-content: end;
+
+	color: #fafafa;
+}
+
+.item__title {
+	font-style: italic;
+	letter-spacing: 1.2px;
+}
+
+.item__number {
+	align-content: end;
+	text-align: end;
+}
+
+.total {
+	margin-top: 10px;
+	margin-right: 5px;
+
+	position: absolute;
+	bottom: 25px;
+	left: 25px;
+
+	font-weight: 700;
+	font-style: italic;
+	letter-spacing: 1.2px;
+}
+
+.total span {
+	font-style: normal;
+	font-weight: 400;
+}
