@@ -8,32 +8,194 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1 class="title">Учет расходов и прибыли</h1>
-			<div class="form">
-				<input
-					id="descInput"
-					class="desc"
-					type="text"
-					placeholder="Введите описание: "
-				/>
-				<input
-					id="numberInput"
-					class="number"
-					type="number"
-					placeholder="Введите сумму: "
-				/>
-				<button id="btnAdd" class="btn">Добавить</button>
+			<h1 class="title">Финансовый учет</h1>
+			<div class="row">
+				<div class="form">
+					<div class="form__inputs">
+						<input
+							id="descInput"
+							class="desc input-styles"
+							type="text"
+							placeholder="Введите описание: "
+						/>
+						<input
+							id="numberInput"
+							class="number input-styles"
+							type="number"
+							placeholder="Введите сумму: "
+						/>
+					</div>
+
+					<div class="categories">
+						<select class="select-categories" id="categories" name="categories">
+							<!--<option value="technology">Еда</option>-->
+						</select>
+						<button class="btn btn-cate" id="btnAddCate">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-plus"
+							>
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path d="M12 5l0 14" />
+								<path d="M5 12l14 0" />
+							</svg>
+						</button>
+						<button class="btn btn-cate" id="btnDelCate">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-trash"
+							>
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path d="M4 7l16 0" />
+								<path d="M10 11l0 6" />
+								<path d="M14 11l0 6" />
+								<path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+								<path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+							</svg>
+						</button>
+					</div>
+					<button id="btnAdd" class="btn">Добавить</button>
+				</div>
+
+				<div class="sort">
+					<div class="sort__inputs">
+						<div class="sort__start">
+							<label for="startDate">От:</label>
+							<input type="date" id="startDate" />
+						</div>
+						<div class="sort__end">
+							<label for="endDate">До:</label>
+							<input type="date" id="endDate" />
+						</div>
+					</div>
+					<div class="sort__btns">
+						<button id="bntSort" class="btn">Сортировать</button>
+						<button id="resetSort" class="btn">Сбросить</button>
+					</div>
+				</div>
+				<select class="select-categories" id="filterCategories">
+					<option value="all">Все категории</option>
+				</select>
 			</div>
 
 			<div class="overflow">
+				<li id="emptyRecording" class="empty none"></li>
 				<ul id="listRecording" class="list">
-					<li id="emptyRecording" class="empty">
-						// На данный момент у вас нет записей!
+					<li class="item">
+						<p class="item__date">07.12.24</p>
+						<h5 class="item__title">На обед</h5>
+						<p class="item__number">50 с</p>
+						<button class="item__delete-btn">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-backspace"
+							>
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path
+									d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z"
+								/>
+								<path d="M12 10l4 4m0 -4l-4 4" />
+							</svg>
+						</button>
 					</li>
 				</ul>
 			</div>
 
-			<h5 id="totalSum" class="total">Итого: 0 с</h5>
+			<button id="btnClear" class="btn bnt--clear">Удалить все записи!</button>
+			<p id="totalSum" class="total">Итого: 0 с</p>
+		</div>
+
+		<div class="modal" id="modalAddCat" style="display: none">
+			<div class="modal__content">
+				<button id="modalAddClose" class="btn-modal-close">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="icon icon-tabler icons-tabler-outline icon-tabler-x"
+					>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<path d="M18 6l-12 12" />
+						<path d="M6 6l12 12" />
+					</svg>
+				</button>
+				<input
+					id="modalAddInput"
+					class="modal__input input-styles"
+					type="text"
+					placeholder="Добавить категория:"
+				/>
+				<button id="modalAddBtn" class="btn-modal">Добавить</button>
+			</div>
+		</div>
+
+		<div class="modal" id="modalDelCat" style="display: none">
+			<div class="modal__content">
+				<h3 class="title modal-del__title">Введите название категории!</h3>
+				<button id="modalDelClose" class="btn-modal-close">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="icon icon-tabler icons-tabler-outline icon-tabler-x"
+					>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<path d="M18 6l-12 12" />
+						<path d="M6 6l12 12" />
+					</svg>
+				</button>
+				<ul id="modalList" class="modal__list">
+					<li class="modal__item">- Еда</li>
+					<li class="modal__item">- Транспорт</li>
+					<li class="modal__item">- Еда</li>
+					<li class="modal__item">- Еда</li>
+					<li class="modal__item">- Еда</li>
+					<li class="modal__item">- Еда</li>
+				</ul>
+				<input
+					id="modalDelInput"
+					class="modal__input input-styles mt0 modal-del__input"
+					type="text"
+					placeholder="Удалить категория:"
+				/>
+				<button id="modalDelBtn" class="btn-modal">Удалить</button>
+			</div>
 		</div>
 
 		<script src="./main.js"></script>

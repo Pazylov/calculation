@@ -3,11 +3,11 @@
 /*  */
 .container {
 	position: relative;
-	margin: 50px auto 0;
+	margin: 10px auto 0;
 	padding: 30px;
 
-	width: 400px;
-	height: 600px;
+	width: 650px;
+	height: 800px;
 
 	font-family: 'Playfair Display', serif;
 
@@ -24,16 +24,28 @@
 	text-align: center;
 }
 
-.form {
-	margin-top: 30px;
+.row {
+	margin-top: 20px;
 
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 10px;
 }
 
-.number,
-.desc {
+.form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.form__inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.input-styles {
 	padding: 5px 10px;
 	border-radius: 3px;
 	border: 2px solid #ffffff4c;
@@ -43,15 +55,13 @@
 	font-style: italic;
 }
 
-.number::placeholder,
-.desc::placeholder {
+.input-styles::placeholder {
 	color: #ffffff4c;
 	font-style: italic;
 	font-family: 'Playfair Display', serif;
 }
 
-.desc:focus,
-.number:focus {
+.input-styles:focus {
 	border: 2px solid #fff;
 }
 
@@ -61,8 +71,38 @@
 .number {
 }
 
+.categories {
+	display: grid;
+	grid-template-columns: 1fr 30px 30px;
+	gap: 20px;
+}
+
+.select-categories {
+	background: transparent;
+	border-radius: 3px;
+	border: 2px solid #ffffff4c;
+}
+
+.select-categories option {
+	background: #6a6e7f;
+}
+
+.select-categories option:checked {
+	background-color: #fff;
+	color: #50535f;
+}
+
+.select-categories option:hover {
+	background-color: #fff;
+	color: #50535f;
+}
+
+.select-categories:focus {
+	border: 2px solid #fff;
+}
+
 .btn {
-	padding: 8px;
+	padding: 5px;
 
 	font-weight: 700;
 	font-size: 16px;
@@ -80,9 +120,43 @@
 	color: #50535f;
 }
 
+.btn-cate {
+	padding: 5px 5px 0 5px;
+}
+
+.sort {
+	border-top: 1px solid #ffffff4c;
+
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+}
+
+.sort__inputs {
+	margin-top: 10px;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.sort__btns {
+	margin-top: 10px;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.sort__start {
+	display: flex;
+	gap: 5px;
+}
+
 .overflow {
+	margin-top: 10px;
+
 	overflow: auto;
-	margin-top: 25px;
 	border-top: 1px solid #ffffff4c;
 }
 
@@ -97,7 +171,7 @@
 }
 
 .list {
-	max-height: 280px;
+	max-height: 390px;
 	height: 100%;
 
 	margin-right: 8px;
@@ -109,18 +183,25 @@
 }
 
 .empty {
+	margin-top: 20px;
 	color: #d2d2d2;
 	font-style: italic;
 	letter-spacing: 1.2px;
 	font-size: 14px;
+
+	list-style: none;
 }
 
 .item {
 	display: grid;
-	grid-template-columns: 75% 25%;
+	grid-template-columns: auto 1fr auto auto;
+	gap: 15px;
 	justify-content: end;
 
 	color: #fafafa;
+}
+.item__date {
+	color: #d2d2d2;
 }
 
 .item__title {
@@ -131,6 +212,22 @@
 .item__number {
 	align-content: end;
 	text-align: end;
+}
+
+.item__delete-btn {
+}
+
+.item__delete-btn svg {
+	width: 20px;
+	height: 20px;
+}
+
+.bnt--clear {
+	font-size: 12px;
+	background-color: transparent;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
 }
 
 .total {
@@ -151,37 +248,207 @@
 	font-weight: 400;
 }
 
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal__content {
+	position: relative;
+
+	padding: 20px;
+	min-width: 300px;
+
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	gap: 20px;
+
+	border-radius: 5px;
+	color: #fff;
+	background-image: linear-gradient(#444754, #4c5262, #444754);
+}
+
+.btn-modal-close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.modal__input {
+	margin-top: 20px;
+}
+
+.btn-modal {
+	padding: 5px;
+
+	font-weight: 700;
+	font-size: 16px;
+	letter-spacing: 1.6px;
+
+	border-radius: 3px;
+	background: #6a6e7f;
+	color: #fff;
+
+	transition: all 0.3s ease;
+}
+
+.btn-modal:hover {
+	background: #fff;
+	color: #50535f;
+}
+
+.modal-del__title {
+	margin-top: 10px;
+	font-size: 18px;
+}
+
+.modal__list {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 5px;
+
+	font-size: 16px;
+}
+
+.modal-del__input::placeholder {
+	font-size: 14px;
+}
+
+.mt0 {
+	margin-top: 0;
+}
+
+.modal__item {
+}
+
+@media (max-width: 767px) {
+	.container {
+		padding: 15px;
+		width: 570px;
+		height: 750px;
+	}
+
+	.btn {
+		font-size: 14px;
+	}
+
+	.bnt--clear {
+		font-size: 12px;
+	}
+
+	.sort {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.sort__inputs {
+		justify-content: start;
+	}
+
+	.sort__btns {
+		justify-content: start;
+	}
+
+	.list {
+		max-height: 320px;
+	}
+}
+
 @media (max-width: 576px) {
 	.container {
-		margin-top: 20px;
-		padding: 20px;
-		width: 320px;
-		height: 500px;
+		width: 370px;
+		height: 580px;
 	}
 
 	.title {
 		font-size: 18px;
 	}
 
-	.form {
-		margin-top: 20px;
+	.row {
+		margin-top: 10px;
 	}
 
-	.number::placeholder,
-	.desc::placeholder {
+	.form {
+		gap: 8px;
+	}
+
+	.form__inputs {
+		gap: 5px;
+	}
+
+	.input-styles {
+		padding: 3px 5px;
+	}
+	.input-styles::placeholder {
+		font-size: 14px;
+	}
+
+	.categories {
+		font-size: 14px;
+		gap: 10px;
+	}
+	.select-categories {
 		font-size: 14px;
 	}
 
 	.btn {
-		padding: 4px;
-		font-size: 14px;
+		padding: 3px 10px;
 	}
 
-	.empty {
+	.btn-cate {
+		padding: 5px 5px 0 5px;
+		width: 25px;
+		height: 25px;
+	}
+
+	.list {
+		max-height: 235px;
+	}
+
+	.item {
 		font-size: 12px;
 	}
 
-	.total {
+	.item__delete-btn {
+		width: 15px;
+		height: 15px;
+	}
+
+	.empty {
+		margin-top: 8px;
+		font-size: 12px;
+	}
+
+	.sort {
+		gap: 5px;
+	}
+
+	.sort__inputs {
+		margin-top: 5px;
+
 		font-size: 14px;
+	}
+
+	.sort__btns {
+		margin-top: 5px;
+	}
+
+	.total {
+		font-size: 12px;
+	}
+
+	.bnt--clear {
+		padding: 2px;
+		font-size: 10px;
 	}
 }
