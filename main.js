@@ -1,6 +1,7 @@
 const descInput = document.getElementById('descInput')
 const numberInput = document.getElementById('numberInput')
 
+/*  */
 const modal = document.getElementById('modalAddCat')
 const modalInput = document.getElementById('modalAddInput')
 const modalCloseBtn = document.getElementById('modalAddClose')
